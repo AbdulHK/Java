@@ -1,0 +1,67 @@
+package ie.dit;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class TuneFinder
+{
+	public TuneFinder()
+	{
+		
+	}
+
+	public void printTunes()
+	
+	{
+		Connection conn=null;
+		PreparedStatement statment=null;
+		ResultSet results=null;
+		
+		try
+		{		//ctrl+shit_b created break point
+			Class.forName("org.stdlite.JDBC"); //searches for the connection
+			conn=DriverManager.getConnection("jdbc:sqlite:tunes.slite");
+			statment=conn.prepareStatement("Select * from tunes");
+			statment.executeQuery();
+			results= statment.executeQuery();
+			while(results.next())
+			{
+				
+				System.out.println(results.getString("title"));
+				System.out.println(results.getString("search_key"));
+
+			}
+			
+		}
+		catch(ClassNotFoundException e)  //file not found exception 
+		{
+		 System.out.println("cant load the driver");
+		 e.printStackTrace();
+		}
+		catch(SQLException e)
+		{
+			System.out.println("cant find database");
+			 e.printStackTrace();
+		}
+		finally
+		{
+			if(conn !=null)
+			{
+				try
+				{
+				conn.close();
+				}
+				catch(SQLException e)
+				{
+					System.out.println("cloud not close database");
+					e.printStackTrace();
+				}
+				
+			}
+		}
+	}
+}
+

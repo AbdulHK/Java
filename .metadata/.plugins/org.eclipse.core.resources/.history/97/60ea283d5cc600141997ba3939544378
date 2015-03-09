@@ -1,0 +1,30 @@
+package ie.dit;
+
+public class Tune 
+{
+	//right click<refactor<encapslute filed to create getters and setters.
+	private	String title;
+	private String SearchKey;  
+	float ed;
+	
+	public Tune()
+	{
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getSearchKey() {
+		return SearchKey;
+	}
+
+	public void setSearchKey(String searchKey) {
+		SearchKey = searchKey;
+	}
+	}
+

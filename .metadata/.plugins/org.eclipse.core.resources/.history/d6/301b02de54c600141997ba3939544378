@@ -1,0 +1,26 @@
+package ie.dit;
+
+import processing.core.PApplet;
+
+
+public class Main extends PApplet
+{
+
+	public static void main(String[] args) 
+	{
+		//SQLITE embedded and default database shipped with IOS, Android databases
+		//
+
+	
+	}
+	public void start()
+	{
+	}
+	public void draw()
+	{
+	}
+	
+	
+	
+	}
+
